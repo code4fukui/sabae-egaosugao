@@ -1,0 +1,175 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width"><link rel="icon" href="data:">
+<title>笑顔と素顔 - 広報さばえ</title>
+</head><body>
+<h1><a href="./">笑顔と素顔 - 広報さばえ</a></h1>
+<div id=list class=list></div>
+<main id=main></main>
+<div id=series class=series></div>
+<hr>
+<footer>
+DATA: <a href=https://www.city.sabae.fukui.jp/about_city/koho_kocho/kohosabae/index.html>広報さばえ – めがねのまちさばえ 鯖江市</a><br>
+APP: <a href=https://github.com/code4fukui/sabae-egaosugao/>src on GitHub</a><br>
+</footer>
+
+<script type="module">
+import { CSV } from "https://js.sabae.cc/CSV.js";
+
+const cr = tag => document.createElement(tag);
+
+const data = await CSV.fetchJSON("./egaosugao.csv");
+
+for (const d of data) {
+  const item = cr("div");
+  item.innerHTML = `
+    <a href=#${d.vol}>
+    <img src=${d.photo}><br>
+    <div class=name>${d.name}さん</div>
+    <div class=title>Vol. ${d.vol} <b>${d.title}</b></div>
+    </a>
+  `;
+  list.appendChild(item);
+}
+
+for (let i = data.length - 1; i >= 0; i--) {
+  const d = data[i];
+  const div = cr("div");
+  div.innerHTML = `
+    <a id=${d.vol} href=#${d.vol}>
+    <div class=vol>笑顔と素顔 Vol. ${d.vol} 広報さばえ ${d.date_published}</div>
+    <h2 class=title>${d.title}</h2></a>
+    <div class=person>
+      <img src=${d.photo}><br>
+      <div class=name><ruby><rb>${d.name}</rb><rt>${d.name_kana}</rt></ruby>さん (${d.age})</div>
+      <div class=profile>${d.profile}</div>
+    </div>
+    <div class=bodydiv>
+      <div class=body>${d.body}</div>
+      <img src=${d.body_photo}><br>
+      <div class=body_desc>${d.body_photo_description}</div>
+      ${d.body_url ? `<div class=link><a href=${d.body_url}>${d.body_url}</a>` : ""}
+    </div>
+  `;
+  main.appendChild(div);
+}
+const d = data[data.length - 1];
+series.innerHTML = `
+  <div class=description>${d.series_description}</div>
+  <div class=author>${d.author} (MAIL: <a href=mail:${d.author_mail}>${d.author_mail}</a>, TEL: <a href=tel:${d.author_tel}>${d.author_tel}</a>)</div>`;
+</script>
+
+<style>
+body {
+  padding: 0;
+  margin: 0;
+  font-family: sans-serif;
+}
+main {
+  padding: 1.5em;
+}
+h1 {
+  background-color: #f88888;
+  color: white;
+  margin: 0;
+  padding: 1em .5em;
+}
+h2 {
+  margin-top: .1em;
+  padding-top: 0;
+}
+.vol {
+  margin-top: 1em;
+  margin-bottom: -.5em;
+  font-size: 80%;
+}
+img {
+  width: 100%;
+}
+.person {
+  background-color: #f1f1f1;
+  padding: .5em;
+  margin: .5em;
+}
+.person .name {
+  margin-bottom: .5em;
+  font-size: 130%;
+}
+.body {
+  white-space: pre-wrap;
+  line-height: 2;
+}
+.bodydiv {
+  margin-bottom: 4em;
+}
+.bodydiv .link {
+  font-size: 80%;
+  margin-top: .5em;
+  word-break: break-all;
+}
+.list {
+  overflow: scroll;
+  white-space: nowrap;
+  font-size: 90%;
+  background-color: #fff5f4;
+}
+.list > div {
+  display: inline-block;
+  width: 150px;
+  margin: 1em;
+  padding: .5em;
+}
+.list > div > div {
+  display: block;
+  white-space: normal;
+}
+.list img {
+  width: 100%;
+}
+main a {
+  color: #222 !important;
+  text-decoration: none;
+  font-size: 130%;
+}
+.list a {
+  text-decoration: none;
+  color: #222;
+}
+.list a div {
+  display: block;
+  white-space: normal;
+}
+footer {
+  margin: 1em;
+}
+footer a {
+  color: #222 !important;
+}
+h1 a {
+  text-decoration: none;
+  color: white !important;
+}
+.series {
+  margin: 1em;
+  padding: .5em;
+  background-color: #f1f1f1;
+}
+
+@media screen and (min-width: 600px) {
+  .person {
+    clear:  both;
+  }
+  .person:after {
+    display:block;
+    content:'';
+    clear:both;
+  }
+  .person img {
+    width: 50%;
+    max-width: 400px;
+    float: left;
+    margin-right: 1em;
+  }
+  .bodydiv {
+    clear:  both;
+  }
+}
+</style>
