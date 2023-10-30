@@ -50,7 +50,8 @@ for (let i = data.length - 1; i >= 0; i--) {
       <img src=${d.body_photo}><br>
       <div class=body_desc>${d.body_photo_description}</div>
       ${d.body_url ? `<div class=link><a href=${d.body_url}>${d.body_url}</a>` : ""}
-      <div class=source><a href=${d.source_pdf}>出典: ${d.source} 紙面PDF</a></a>
+      <div class=source><a href=${d.source_pdf}>出典: ${d.source} 紙面PDF</a>
+      ${d.source_audio ? `(<a href=${d.source_audio}>音声で聞く</a> by <a href=https://www.sabae-npo.org/doyano/dantai/402/dantai.html>音訳ボランティア くさぶえ</a>)</a>` : ""}
     </div>
   `;
   main.appendChild(div);
