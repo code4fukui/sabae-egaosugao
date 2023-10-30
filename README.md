@@ -2,6 +2,10 @@
 
 https://code4fukui.github.io/sabae-egaosugao/
 
+## 出典
+
+[広報さばえ](https://www.city.sabae.fukui.jp/about_city/koho_kocho/kohosabae/index.html)
+
 ## 作成方法
 
 1. MacのOCRツール[ocr_mac](https://github.com/code4fukui/ocr_mac/)などで、PDFデータをテキスト化
