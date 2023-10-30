@@ -1,4 +1,4 @@
-import { KVTXT } from "./KVTXT.js";
+import { KVTXT } from "https://code4fukui.github.io/KVTXT/KVTXT.js";
 import { dir2array } from "https://js.sabae.cc/dir2array.js";
 import { CSV } from "https://js.sabae.cc/CSV.js";
 
