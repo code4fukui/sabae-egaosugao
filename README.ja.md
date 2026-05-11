@@ -1,14 +1,12 @@
 # 笑顔と素顔 - 広報さばえ
 
-> 日本語のREADMEはこちらです: [README.ja.md](README.ja.md)
-
 [
 ![Deploy to GitHub Pages](https://github.com/code4fukui/sabae-egaosugao/actions/workflows/gh-pages.yml/badge.svg)
 ](https://github.com/code4fukui/sabae-egaosugao/actions/workflows/gh-pages.yml)
 
 「広報さばえ」の人気コーナー「笑顔と素顔」をオープンデータ化し、ウェブで閲覧できるようにしたアーカイブサイトです。
 
-**Demo: https://code4fukui.github.io/sabae-egaosugao/**
+**デモ: https://code4fukui.github.io/sabae-egaosugao/**
 
 ## データ更新の流れ (Workflow)
 
