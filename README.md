@@ -8,7 +8,7 @@
 
 「広報さばえ」の人気コーナー「笑顔と素顔」をオープンデータ化し、ウェブで閲覧できるようにしたアーカイブサイトです。
 
-**Demo: https://code4fukui.github.io/sabae-egaosugao/**
+**Demo: https://github.com/code4fukui/sabae-egaosugao
 
 ## データ更新の流れ (Workflow)
 
